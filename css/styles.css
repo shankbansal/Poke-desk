@@ -1,0 +1,20 @@
+:root {
+  --primary-color: #357b70;
+  --visited-color: #05676e;
+  --secondary-color: #e0b354;
+  --dark-grey: #2b2b2b;
+  --FW: 700; /* font-weight* /
+}
+body {
+  background-color:white;
+}
+body {
+  font-family: 'Lato', sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  /* Sets the font size to 16px */
+
+  line-height: 1.6;
+
+  /* Sets the line-height to 1.6 */
+}
