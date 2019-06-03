@@ -16,12 +16,35 @@ var repository = [
   }
 ];
 
-for(i = 0; i<repository.length; i++) {
-  console.log(repository[i].name);
-  document.write('<p id = "title"> My name is:</p><h1>' + repository[i].name + '</h1>' + '<h1 id = "height">'+ 'Height: ' + repository[i].height + '</h1>' )
-  if (repository[i].height>5) { document.write('<p>wow! what a big Pokemon!</p>');
+var repository2 = [
+  {
+    name: 'Charmender',
+    height:6,
+    type: ['fire']
+  },
+  {
+    name: 'Meowth',
+    height:4,
+    type: ['Normal']
+  },
+  {
+    name: 'Abra',
+    height:9,
+    type: ['psychic']
+  }
+];
+
+function printArrayDetails (pokemonList){
+for(i = 0; i<pokemonList.length; i++) {
+  console.log(pokemonList[i].name);
+  document.write('<p id = "title"> My name is:</p><h1>' + pokemonList[i].name + '</h1>' + '<h1 id = "height">'+ 'Height: ' + pokemonList[i].height + '</h1>' )
+  if (pokemonList[i].height>5) { document.write('<p>wow! what a big Pokemon!</p>');
 
 } else { document.write('<p>thats cute!</p>');
 
   }
 }
+}
+
+printArrayDetails(repository);
+printArrayDetails(repository2);
