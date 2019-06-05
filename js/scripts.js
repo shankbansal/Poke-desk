@@ -34,17 +34,14 @@ var repository2 = [
   }
 ];
 
-function printArrayDetails (pokemonList){
-for(i = 0; i<pokemonList.length; i++) {
-  console.log(pokemonList[i].name);
-  document.write('<p id = "title"> My name is:</p><h1>' + pokemonList[i].name + '</h1>' + '<h1 id = "height">'+ 'Height: ' + pokemonList[i].height + '</h1>' )
-  if (pokemonList[i].height>5) { document.write('<p>wow! what a big Pokemon!</p>');
+var newRepository = repository.concat(repository2)
+
+newRepository.forEach(function (pokemon){
+  console.log(pokemon.name);
+  document.write('<p id = "title"> My name is:</p><h1>' + pokemon.name + '</h1>' + '<h1 id = "height">'+ 'Height: ' + pokemon.height + '</h1>' )
+  if (pokemon.height>5) { document.write('<p>wow! what a big Pokemon!</p>');
 
 } else { document.write('<p>thats cute!</p>');
 
   }
-}
-}
-
-printArrayDetails(repository);
-printArrayDetails(repository2);
+});
