@@ -1,3 +1,4 @@
+var pokemonRepository = (function() {
 var repository = [
   {
     name: 'Bulbasaur',
@@ -16,6 +17,19 @@ var repository = [
   }
 ];
 
+function add(pokemon) {
+  repository.push(pokemon);
+}
+function getAll() {
+  return repository;
+}
+return {
+  add: add,
+  getAll: getAll
+};
+})();
+
+var pokemonRepository2 = (function() {
 var repository2 = [
   {
     name: 'Charmender',
@@ -34,10 +48,23 @@ var repository2 = [
   }
 ];
 
-var newRepository = repository.concat(repository2)
+function add(pokemon) {
+  repository2.push(pokemon);
+}
+function getAll() {
+  return repository2;
+}
+return {
+  add: add,
+  getAll: getAll
 
-newRepository.forEach(function (pokemon){
-  console.log(pokemon.name);
+};
+})();
+
+var newRepository = pokemonRepository.concat(pokemonRepository2)
+
+newRepository.forEach(function (getAll){
+
   document.write('<p id = "title"> My name is:</p><h1>' + pokemon.name + '</h1>' + '<h1 id = "height">'+ 'Height: ' + pokemon.height + '</h1>' )
   if (pokemon.height>5) { document.write('<p>wow! what a big Pokemon!</p>');
 
