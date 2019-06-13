@@ -14,23 +14,7 @@ var repository = [
     name: 'Squirtle',
     height:5,
     type: ['water']
-  }
-];
-
-function add(pokemon) {
-  repository.push(pokemon);
-}
-function getAll() {
-  return repository;
-}
-return {
-  add: add,
-  getAll: getAll
-};
-})();
-
-var pokemonRepository2 = (function() {
-var repository2 = [
+  },
   {
     name: 'Charmender',
     height:6,
@@ -47,28 +31,22 @@ var repository2 = [
     type: ['psychic']
   }
 ];
-
 function add(pokemon) {
-  repository2.push(pokemon);
+  repository.push(pokemon);
 }
 function getAll() {
-  return repository2;
+  return repository;
 }
 return {
   add: add,
   getAll: getAll
-
 };
 })();
 
-var newRepository = pokemonRepository.concat(pokemonRepository2)
-
-newRepository.forEach(function (getAll){
-
+pokemonRepository.getAll().forEach(function (pokemon){
+  
   document.write('<p id = "title"> My name is:</p><h1>' + pokemon.name + '</h1>' + '<h1 id = "height">'+ 'Height: ' + pokemon.height + '</h1>' )
   if (pokemon.height>5) { document.write('<p>wow! what a big Pokemon!</p>');
-
 } else { document.write('<p>thats cute!</p>');
-
   }
 });
