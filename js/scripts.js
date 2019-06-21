@@ -44,9 +44,9 @@ return {
 })();
 
 pokemonRepository.getAll().forEach(function (pokemon){
-  
-  document.write('<p id = "title"> My name is:</p><h1>' + pokemon.name + '</h1>' + '<h1 id = "height">'+ 'Height: ' + pokemon.height + '</h1>' )
+
+/*  document.write('<p id = "title"> My name is:</p><h1>' + pokemon.name + '</h1>' + '<h1 id = "height">'+ 'Height: ' + pokemon.height + '</h1>' )
   if (pokemon.height>5) { document.write('<p>wow! what a big Pokemon!</p>');
 } else { document.write('<p>thats cute!</p>');
   }
-});
+}); */

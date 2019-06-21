@@ -6,20 +6,31 @@
   --FW: 700; /* font-weight* /
 }
 body {
-  background-color:white;
+background-color:white;
 }
 body {
-  font-family: 'Lato', sans-serif;
-  font-weight: 400;
-  font-size: 16px;
-  /* Sets the font size to 16px */
+font-family: 'Lato', sans-serif;
+font-weight: 400;
+font-size: 16px;
+/* Sets the font size to 16px */
 
-  line-height: 1.6;
+line-height: 1.6;
 
-  /* Sets the line-height to 1.6 */
+/* Sets the line-height to 1.6 */
 }
 h1 {
+  font-size: 30px;
+  font-weight: var(--FW);
   color: green;
+}
+h2 {
+  font-size: 24px;
+  font-weight: var(--FW);
+}
+
+h3 {
+  font-size: 18px;
+  font-weight: var(--FW);
 }
 #title {
   color: yellow;
@@ -30,4 +41,48 @@ h1 {
 #height {
   font-size: 12px;
   color:red;
+}
+.page-header{
+  display: flex;
+  width: 100%;
+  padding: 10px;
+  margin-left: 15px;
+}
+.pokedesk {
+  width: 100%;
+  max-width: 768px;
+  min-width: 320px;
+  margin: 0 auto;
+  padding: 15px 10px;
+}
+.pokemon-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding-left: 0px;
+  margin: 0px;
+}
+.pokemon-list__item {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin-top: 15px;
+  background-color: ;
+}
+
+.page-footer {
+  clear: both;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+@media all and (max-width: 500px) {
+  h1 {
+    font-size: 22px;
+  }
+}
+@media all and (min-width: 500px) and (max-width: 750px) {
+
 }
