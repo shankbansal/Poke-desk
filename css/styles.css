@@ -78,11 +78,19 @@ h3 {
   text-align: center;
 }
 
-@media all and (max-width: 500px) {
+.pokemon-list__item {
+  max-width: 60%
+}
+@media all and (max-width: 450px) {
   h1 {
     font-size: 22px;
   }
+  .pokemon-list__item {
+    max-width: 60%
+  }
 }
 @media all and (min-width: 500px) and (max-width: 750px) {
-
+  .pokemon-list__item {
+    max-width: 60%
+  }
 }
