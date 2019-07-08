@@ -112,19 +112,23 @@ function addListItem(pokemon) {
 
   modalClose.onclick = function() {
     var modal = document.getElementById(pokemon.name);
-    modal.style.visibility = "hidden";
+    modal.style.display= 'none';
 
   }
   modalContent.appendChild(modalClose)
-  var pokeName = document.createElement('h2');
-  var pokeNameText =document.createTextNode(pokemon.name)
+  var pokeName= document.createElement('h2');
+  var pokeNameText= document.createTextNode(pokemon.name)
   var pokeImg= document.createElement('img')
   pokeImg.src= pokemon.imageUrl
   pokeImg.style.width= '50px'
   pokeImg.style.height= '50px'
+  var pokeHeight= document.createTextNode(pokemon.height)
+  var pokeTyp= document.createTextNode(pokemon.types)
   pokeName.appendChild(pokeNameText)
   modalContent.appendChild(pokeName)
   modalContent.appendChild(pokeImg)
+  modalContent.appendChild(pokeHeight)
+  modalContent.appendChild(pokeTyp)
   pokemonModal.appendChild(modalContent)
   pokemonButton.appendChild(pokemonModal)
 
