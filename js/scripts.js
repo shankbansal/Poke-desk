@@ -112,7 +112,7 @@ function addListItem(pokemon) {
 
   modalClose.onclick = function() {
     var modal = document.getElementById(pokemon.name);
-    modal.style.display= 'none';
+    modal.style.visibility= 'Hidden';
 
   }
   modalContent.appendChild(modalClose)
@@ -136,10 +136,7 @@ function addListItem(pokemon) {
     showDetails(pokemon)
   })
 
-/*  function showLoadingMessage() //before loadList & loadDetails
-  function hideLoadingMessage() //when message appears
-  function showLoadingMessage() //after, for loading next message
-*/}
+}
 
 function showDetails(pokemon) {
   var modal = document.getElementById(pokemon.name)
@@ -233,3 +230,31 @@ pokemonRepository.loadList().then(function() {
     pokemonRepository.addListItem(pokemon);
   });
 });
+
+var loadingDiv= document.createElement('div')
+loadingDiv.classList.add('loading')
+
+var loadingImg= document.createElement('img')
+loadingImg.classList.add('loadingGIF')
+loadingImg.src='https://media.giphy.com/media/WytSQL7115G6uPwDwK/giphy.gif'
+loadingImg.setAttribute('alt','Loading...')
+loadingImg.setAttribute('id','loadingGIF')
+
+loadingDiv.appendChild(loadingImg)
+document.body.appendChild(loadingDiv)
+
+window.onload= function() {
+  loading.hide
+}
+
+function showLoadingMessage() {
+
+}
+
+function showResponse() {
+
+}
+
+function hideLoadingMessage() {
+  loadingGIF.hide;
+}

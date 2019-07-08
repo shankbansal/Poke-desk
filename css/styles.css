@@ -132,3 +132,27 @@ h3 {
   text-decoration: none;
   cursor: pointer;
 }
+
+.loadingGIF {
+    display: block;
+    visibility: visible;
+    position: absolute;
+    z-index: 999;
+    top: 50%;
+    left: 50%;
+    width: 6%;
+    height: 9%;
+    background-color: transparent;
+    vertical-align:bottom;
+    padding-top: 20%;
+    filter: alpha(opacity=75);
+    opacity: 0.75;
+    font-size:large;
+    color:blue;
+    font-style:italic;
+    font-weight:400;
+    background-image: url("../Common/loadingGIF.gif");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+}
