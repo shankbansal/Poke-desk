@@ -1,6 +1,6 @@
 var pokemonRepository = (function () {
   var repository = [];
-  var apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=964';
+  var apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=21';
 
   //other functions
 
@@ -20,10 +20,12 @@ var pokemonRepository = (function () {
 
 async function loadDetails(item) {
   var url = item.detailsUrl;
+  console.log('poke')
   return await fetch(url).then(function (response) {
     return response.json();
   }).then(function (details) {
     //details of items
+    console.log(details.sprites.front_default)
     item.imageUrl = details.sprites.front_default;
     item.height = details.height;
     item.types = Object.keys(details.types);
@@ -98,27 +100,49 @@ function addListItem(pokemon) {
   pokemonList.appendChild(pokemonLink)
   //document.getElementsByClassName('pokemon-list')[0].appendChild(pokemonLink)
 
-/*  pokemonButton.addEventListener('click', function() {
-    showDetails(pokemon)
-  })*/
   var pokemonModal = document.createElement('div')
   pokemonModal.classList.add('modal')
+  pokemonModal.setAttribute('id',pokemon.name)
   var modalContent = document.createElement('div')
   modalContent.classList.add('modal-content')
   var modalClose = document.createElement('span')
   modalClose.classList.add('close')
-  modalContent.appendChild(modalClose)
-  pokemonModal.appendChild(modalContent)
+  var closeText = document.createTextNode('X')
+  modalClose.appendChild(closeText)
 
-  function showLoadingMessage() //before loadList & loadDetails
+  modalClose.onclick = function() {
+    var modal = document.getElementById(pokemon.name);
+    modal.style.visibility = "hidden";
+
+  }
+  modalContent.appendChild(modalClose)
+  var pokeName = document.createElement('h2');
+  var pokeNameText =document.createTextNode(pokemon.name)
+  var pokeImg= document.createElement('img')
+  pokeImg.src= pokemon.imageUrl
+  pokeImg.style.width= '50px'
+  pokeImg.style.height= '50px'
+  pokeName.appendChild(pokeNameText)
+  modalContent.appendChild(pokeName)
+  modalContent.appendChild(pokeImg)
+  pokemonModal.appendChild(modalContent)
+  pokemonButton.appendChild(pokemonModal)
+
+  pokemonButton.addEventListener('click', function() {
+    showDetails(pokemon)
+  })
+
+/*  function showLoadingMessage() //before loadList & loadDetails
   function hideLoadingMessage() //when message appears
   function showLoadingMessage() //after, for loading next message
-}
+*/}
 
-function showDetails(item) {
-  pokemonRepository.loadDetails(item).then(function () {
+function showDetails(pokemon) {
+  var modal = document.getElementById(pokemon.name)
+  modal.style.display = "block"
+/*  pokemonRepository.loadDetails(item).then(function () {
     console.log(item); modal.style.display = "block"
-    });
+  });*/
 }
 
 function add(pokemon) {
@@ -201,6 +225,7 @@ pokemonRepository.loadList().then(function() {
   //data loaded now
   pokemonRepository.getAll().forEach(function(pokemon){
     //addListItem(pokemon);
+    pokemonRepository.loadDetails(pokemon)
     pokemonRepository.addListItem(pokemon);
   });
 });
