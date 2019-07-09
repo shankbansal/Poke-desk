@@ -38,62 +38,6 @@ async function loadDetails(item) {
   });
 }
 
-
-    /*return fetch(apiUrl).then(function (response) {
-      return response.json();
-    }).then(function (json) {
-      json.results.forEach(function (item) {
-        var pokemon = {
-          name: item.name,
-          detailsUrl: item.url
-        };
-        add(pokemon);
-      });
-    }).catch(function (e) {
-      console.error(e);
-    })*/
-  //}
-
-/*  return {
-    add: add,
-    getAll: getAll,
-    search: search,
-  };
-})();
-
-pokemonRepository.loadList().then(function() {
-  //data loaded now
-  pokemonRepository.getAll().forEach(function(pokemon){
-    addListItem(pokemon);
-  });
-});
-
-var pokemonRepository = (function () {
-  //other functions
-
-  function loadDetails(item) {
-    var url = item.detailsUrl;
-    return fetch(url).then(function (response) {
-      return response.json();
-    }).then(function (details) {
-      //details of items
-      item.imageUrl = details.sprites.front_default;
-      item.height = details.height;
-      item.types = Object.keys(details.types);
-    }).catch(function (e) {
-      console.error(e);
-    });
-  }
-
-  return {
-    add: add,
-    getAll: getAll,
-    search: search,
-    loadList: loadList,
-    loadDetails: loadDetails
-  };
-})();*/
-
 function addListItem(pokemon) {
   var pokemonLink = document.createElement('li')
   var pokemonButton = document.createElement('button')
@@ -162,18 +106,18 @@ var titleText = document.createTextNode('Poke´desk')
 titleHeader.appendChild(titleText)
 header.appendChild(titleHeader)
 document.body.appendChild(header)
-//document.write('<header class="page-header"><h1>Poke´desk</h1></header>')
+
 
 var linkDiv = document.createElement('div')
 linkDiv.classList.add('pokedesk')
 document.body.appendChild(linkDiv)
-//document.write('<div class="pokedesk"></div>')
+
 var pokemonList = document.createElement('ul')
 pokemonList.classList.add('pokemon-list')
-//var linkDiv = document.getElementsByClassName('pokedesk')
+
 linkDiv.appendChild(pokemonList)
 document.body.appendChild(linkDiv)
-//linkDiv[0].appendChild(pokemonList)
+
 
 var pokemonModal = document.createElement('div')
 pokemonModal.classList.add('modal')
@@ -218,11 +162,6 @@ footerDiv.appendChild(linkedIn)
 footer.appendChild(footerDiv)
 document.body.appendChild(footer)
 
-/*document.write('<footer class="page-footer">'+
-'<p>Find me on</p><div class="social-media">'+
-'<img src="img/iconfinder_github_395321.svg" alt="Github">'+
-'<img src="img/iconfinder_twitter_313075.svg" alt="Twitter">'+
-'<img src="img/iconfinder_linkedin_252090.svg" alt="LinkedIn"></div></footer>')*/
 
 var loadingDiv= document.createElement('div')
 loadingDiv.classList.add('loading')
@@ -235,6 +174,7 @@ loadingImg.setAttribute('id','loadingGIF')
 
 loadingDiv.appendChild(loadingImg)
 document.body.appendChild(loadingDiv)
+
 
 pokemonRepository.getAll().forEach(function (pokemon){
   pokemonRepository.addListItem(pokemon)
