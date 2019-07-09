@@ -134,7 +134,7 @@ h3 {
 }
 
 .loadingGIF {
-    display: block;
+    display: none;
     visibility: visible;
     position: absolute;
     z-index: 999;

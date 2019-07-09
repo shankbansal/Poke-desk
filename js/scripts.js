@@ -1,11 +1,13 @@
 var pokemonRepository = (function () {
   var repository = [];
-  var apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=21';
+  var apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=100';
 
   //other functions
 
   async function loadList() {
-    return await fetch(apiUrl).then(function (response) {
+    var spinner = document.getElementsByClassName('loadingGIF')[0];
+    spinner.style.display = 'block'
+    var response = await fetch(apiUrl).then(function (response) {
       return response.json();
     }).then(function (json) {
       json.results.forEach(function (item) {
@@ -16,11 +18,13 @@ var pokemonRepository = (function () {
         add(pokemon);
       });
     })
+    setTimeout(() => spinner.style.display = 'none', 1200)
+    return response
 }
 
 async function loadDetails(item) {
   var url = item.detailsUrl;
-  console.log('poke')
+
   return await fetch(url).then(function (response) {
     return response.json();
   }).then(function (details) {
@@ -220,19 +224,6 @@ document.body.appendChild(footer)
 '<img src="img/iconfinder_twitter_313075.svg" alt="Twitter">'+
 '<img src="img/iconfinder_linkedin_252090.svg" alt="LinkedIn"></div></footer>')*/
 
-pokemonRepository.getAll().forEach(function (pokemon){
-  pokemonRepository.addListItem(pokemon)
-});
-
-pokemonRepository.loadList().then(function() {
-  //data loaded now
-  pokemonRepository.getAll().forEach(async function(pokemon){
-    //addListItem(pokemon);
-    await pokemonRepository.loadDetails(pokemon)
-    await pokemonRepository.addListItem(pokemon);
-  });
-});
-
 var loadingDiv= document.createElement('div')
 loadingDiv.classList.add('loading')
 
@@ -245,18 +236,16 @@ loadingImg.setAttribute('id','loadingGIF')
 loadingDiv.appendChild(loadingImg)
 document.body.appendChild(loadingDiv)
 
-window.onload= function() {
-  loading.hide
-}
+pokemonRepository.getAll().forEach(function (pokemon){
+  pokemonRepository.addListItem(pokemon)
+});
 
-function showLoadingMessage() {
+pokemonRepository.loadList().then(function() {
 
-}
-
-function showResponse() {
-
-}
-
-function hideLoadingMessage() {
-  loadingGIF.hide;
-}
+  //data loaded now
+  pokemonRepository.getAll().forEach(async function(pokemon){
+    //addListItem(pokemon);
+    await pokemonRepository.loadDetails(pokemon)
+    await pokemonRepository.addListItem(pokemon);
+  });
+});
