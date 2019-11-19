@@ -1,45 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700">
-  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
-  <link rel="stylesheet" type="text/css" href="css/styles.css">
-  <title>Poke´desk</title>
+    <title>Poke´desk</title>
+    <meta charset="utf-8"
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Library -->
+    <script src="js/library/fetch.umd.js"></script>
+    <script src="js/library/promise-polyfill.js"></script>
+
+    <!-- Custom JS-->
+    <script src="js/custom/api.js"></script>
+    <script defer src="js/custom/script.js"></script>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+
 </head>
 <body>
-  <!-- Header Block -->
-  <header class="page-header"><h1>Poke´desk</h1></header>
-  <div class="loading">
-    <img class="loadingGIF" id="loadingGIF" src="https://media.giphy.com/media/WytSQL7115G6uPwDwK/giphy.gif" alt="Loading...">
-  </div>
-  <!-- List Block -->
-  <div class="pokedesk">
-    <ul class="pokemon-list" id="pokemon-list">
-      
-    </ul>
-  </div>
-<!-- The Modal -->
-  <div class="modal" id="pokeModal">
-    <!-- Modal content -->
-    <div class="modal-content">
-      <span class="close">&times;</span>
-    </div>
-  </div>
 
-  <footer class="page-footer">
-    <p>Find me on</p>
-    <div class="social-media">
-        <img src="img/iconfinder_github_395321.svg" alt="Github">
-        <img src="img/iconfinder_twitter_313075.svg" alt="Twitter">
-        <img src="img/iconfinder_linkedin_252090.svg" alt="LinkedIn">
-      </div>
-  </footer>
-  <!-- Library -->
-  <script src="js/promise-polyfill.js"></script>
-  <script src="js/fetch.umd.js"></script>
-  <!-- Custom JS-->
-  <script src="js/script.js"></script>
+    <!-- Header Block -->
+    <div class="header">
+        <h1>Poke-Desk</h1>
+    </div>
+
+    <!-- List Block -->
+    <div class="list-container">
+        <ul type="none" id="pokemon-list">
+        </ul>
+    </div>
+
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+
+        <!-- Modal content -->
+        <div class="modal-content">
+
+          <div class="modal-header">
+            <h2 id="modal-name">Pokemon Name</h2>
+            <span class="close">&times;</span>
+          </div>
+
+          <div class="modal-img-txt">
+            <div style="flex-direction:column">
+            <p><b>Height :</b><span id="modal-height"> </span></p>
+            <p><b>Weight :</b><span id="modal-weight"> </span></p>
+            </div>
+
+            <span><img id="modal-image"></span>
+          </div>
+        </div> 
+    </div>
+
+    <!-- Loader -->
+    <div id="loader">
+        <img src="img/loader/pokeball.webp">
+    </div>
 </body>
+
 </html>
