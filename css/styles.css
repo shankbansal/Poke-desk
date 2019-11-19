@@ -68,7 +68,6 @@ h3 {
   flex-direction: column;
   width: 100%;
   margin-top: 15px;
-  background-color: ;
 }
 
 .page-footer {
@@ -95,8 +94,23 @@ h3 {
   }
 }
 
-/* The Modal (background) */
+/* The Modal wrapper (background) */
+.modal-wrapper{
+  display:flex;
+  justify-content: center;
+  visibility: hidden;
+  align-items:center;
+  height:100vh;
+  background:rgba(0,0,0,0.4);
+}
+
+/* The Modal (background of the modal) */
 .modal {
+  display: flex;
+  justify-content: center;
+  visibility: hidden;
+  align-items:center;
+  height:100vh;
   visibility: hidden; /* Hidden by default */
   position: fixed; /* Stay in place */
   z-index: 1; /* Sit on top */

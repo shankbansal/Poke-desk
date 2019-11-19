@@ -4,7 +4,7 @@ var pokemonRepository = (function () {
 
   //other functions
 
-  async function loadList() {
+async function loadList() {
     var spinner = document.getElementsByClassName('loadingGIF')[0];
     spinner.style.display = 'block'
     var response = await fetch(apiUrl).then(function (response) {
@@ -39,13 +39,13 @@ async function loadDetails(item) {
 }
 
 function addListItem(pokemon) {
-  var pokemonLink = document.createElement('li')
+  /*var pokemonLink = document.createElement('li')
   var pokemonButton = document.createElement('button')
-  pokemonButton.classList.add('pokemon-list__item')
+  pokemonButton.classList.add('pokemon-list__item')*/
   var pokemonName = document.createTextNode(pokemon.name)
   pokemonButton.appendChild(pokemonName)
-  pokemonLink.appendChild(pokemonButton)
-  pokemonList.appendChild(pokemonLink)
+ /* pokemonLink.appendChild(pokemonButton)
+  pokemonList.appendChild(pokemonLink)*/
 
   modalClose.onclick = function() {
     var modal = document.getElementById('pokeModel');
@@ -88,6 +88,7 @@ function add(pokemon) {
 function getAll() {
   return repository;
 }
+
 return {
   add: add,
   getAll: getAll,
@@ -98,7 +99,7 @@ return {
   addListItem: addListItem
 };
 }) ();
-
+/*
 var header = document.createElement('header')
 header.classList.add('page-header')
 var titleHeader = document.createElement('h1')
@@ -174,7 +175,7 @@ loadingImg.setAttribute('id','loadingGIF')
 
 loadingDiv.appendChild(loadingImg)
 document.body.appendChild(loadingDiv)
-
+*/
 
 pokemonRepository.getAll().forEach(function (pokemon){
   pokemonRepository.addListItem(pokemon)

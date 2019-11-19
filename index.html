@@ -9,8 +9,37 @@
   <title>Poke´desk</title>
 </head>
 <body>
+  <!-- Header Block -->
+  <header class="page-header"><h1>Poke´desk</h1></header>
+  <div class="loading">
+    <img class="loadingGIF" id="loadingGIF" src="https://media.giphy.com/media/WytSQL7115G6uPwDwK/giphy.gif" alt="Loading...">
+  </div>
+  <!-- List Block -->
+  <div class="pokedesk">
+    <ul class="pokemon-list" id="pokemon-list">
+      
+    </ul>
+  </div>
+<!-- The Modal -->
+  <div class="modal" id="pokeModal">
+    <!-- Modal content -->
+    <div class="modal-content">
+      <span class="close">&times;</span>
+    </div>
+  </div>
+
+  <footer class="page-footer">
+    <p>Find me on</p>
+    <div class="social-media">
+        <img src="img/iconfinder_github_395321.svg" alt="Github">
+        <img src="img/iconfinder_twitter_313075.svg" alt="Twitter">
+        <img src="img/iconfinder_linkedin_252090.svg" alt="LinkedIn">
+      </div>
+  </footer>
+  <!-- Library -->
   <script src="js/promise-polyfill.js"></script>
   <script src="js/fetch.umd.js"></script>
-  <script src="js/scripts.js"></script>
+  <!-- Custom JS-->
+  <script src="js/script.js"></script>
 </body>
 </html>
