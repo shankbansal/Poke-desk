@@ -48,9 +48,7 @@ async function loadDetails(url) {
 
 /* Append pokemon button */
 function appendPokemonButton(pokemonName, detailUrl) {
-    pokemonList.insertAdjacentHTML('beforeend', `<li>
-    <button class="pokemon-button" onclick="loadDetails('${detailUrl}')">
-    ${pokemonName.charAt(0).toUpperCase() + pokemonName.slice(1)}</button></li>`)
+    pokemonList.insertAdjacentHTML('beforeend', `<li><button class="pokemon-button" onclick="loadDetails('${detailUrl}')">${pokemonName}</button></li>`)
 }
 
 /* Show/Hide loader */
